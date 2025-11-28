@@ -1,6 +1,11 @@
-# CoreTax Sentiment Analysis
+# HACKATHON ZENITHERA - KELOMPOK 5
 
 ## Judul : Sentiment Analysis sebagai Dasar Pengambilan Keputusan Peningkatan Layanan CoreTax pada Sistem Perpajakan Digital.
+
+### Anggota Kelompok :
+
+1. Muhammad Iqbal
+2. Muhammad Maulana Firdaussyah
 
 ![Banner](outputs/wordcloud-sentiment.png)
 
