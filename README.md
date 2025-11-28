@@ -1,5 +1,7 @@
 # CoreTax Sentiment Analysis
 
+![Banner](outputs/wordcloud-sentiment.png)
+
 Project ini bertujuan untuk menganalisis sentimen publik terhadap sistem CoreTax DJP menggunakan data dari YouTube, Play Store, dan Media Sosial.
 
 ## Struktur Folder
@@ -16,7 +18,8 @@ project/
 │   ├── kamuskatabaku.xlsx
 │   └── ... (Data lainnya)
 ├── notebooks/      -> Jupyter Notebooks untuk analisis dan eksperimen
-│   └── Hackathon Sentiment Analysis Improved.ipynb
+│   └── Final_Zenithera_Hackatoon.ipynb
+│   └── Zenithera_Analysis-v1.ipynb
 ├── src/            -> Source code utama (Modular)
 │   ├── scraping/       -> Script untuk crawling data
 │   │   └── crawl_twitter.py
@@ -61,11 +64,11 @@ project/
 
 3.  **Crawling Data Twitter (Opsional):**
     ```bash
-    python src/crawl_twitter.py
+    python src/scraping/crawl_twitter.py
     ```
 
 4.  **Jalankan Notebook (Eksperimen):**
-    Buka `notebooks/Hackathon Sentiment Analysis Improved.ipynb` untuk analisis interaktif.
+    Buka `notebooks/Final_Zenithera_Hackatoon.ipynb` untuk analisis interaktif.
 
 ## Fitur Utama
 - **Modular Codebase:** Kode dipecah menjadi modul-modul terpisah di `src/` agar lebih rapi dan mudah di-maintain.
@@ -73,3 +76,18 @@ project/
 - **Sentiment Analysis:** Menggunakan RoBERTa (`w11wo/indonesian-roberta-base-sentiment-classifier`).
 - **Advanced Visualization:** WordCloud, N-grams, Co-occurrence Network.
 - **Topic Modeling:** Menggunakan BERTopic untuk menemukan topik utama dalam sentimen negatif.
+
+## Hasil Analisis (Preview)
+
+Berikut adalah beberapa contoh visualisasi yang dihasilkan oleh project ini:
+
+### 1. Distribusi Sentimen
+![Sentiment Distribution](outputs/sentiment-coretax.png)
+
+### 2. Hierarchical Clustering
+![Hierarchical Clustering](outputs/hierarchical-clustering.png)
+
+### 3. Topik Word Scores (BERTopic)
+![Topic Word Scores](outputs/topic-word-scores.png)
+
+*Untuk hasil lengkap, silakan cek folder `outputs/`.*
