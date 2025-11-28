@@ -10,3 +10,9 @@ networkx
 indobenchmark-toolkit
 Sastrawi
 accelerate
+bertopic
+sentence-transformers
+umap-learn
+hdbscan
+nltk
+openpyxl
