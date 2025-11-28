@@ -1,12 +1,12 @@
 # CoreTax Sentiment Analysis
 
-Judul : Sentiment Analysis sebagai Dasar Pengambilan Keputusan Peningkatan Layanan CoreTax pada Sistem Perpajakan Digital.
+## Judul : Sentiment Analysis sebagai Dasar Pengambilan Keputusan Peningkatan Layanan CoreTax pada Sistem Perpajakan Digital.
 
 ![Banner](outputs/wordcloud-sentiment.png)
 
 Project ini bertujuan untuk menganalisis sentimen publik terhadap sistem CoreTax DJP menggunakan data dari YouTube, Play Store, dan Media Sosial.
 
-## Struktur Folder
+### Struktur Folder
 
 ```
 project/
@@ -49,7 +49,7 @@ project/
 └── README.md       -> Dokumentasi project ini
 ```
 
-## Cara Menjalankan
+### Cara Menjalankan
 
 1.  **Install Dependencies:**
     ```bash
@@ -72,24 +72,24 @@ project/
 4.  **Jalankan Notebook (Eksperimen):**
     Buka `notebooks/Final_Zenithera_Hackatoon.ipynb` untuk analisis interaktif.
 
-## Fitur Utama
+### Fitur Utama
 - **Modular Codebase:** Kode dipecah menjadi modul-modul terpisah di `src/` agar lebih rapi dan mudah di-maintain.
 - **Data Integration:** Menggabungkan data dari berbagai sumber.
 - **Sentiment Analysis:** Menggunakan RoBERTa (`w11wo/indonesian-roberta-base-sentiment-classifier`).
 - **Advanced Visualization:** WordCloud, N-grams, Co-occurrence Network.
 - **Topic Modeling:** Menggunakan BERTopic untuk menemukan topik utama dalam sentimen negatif.
 
-## Hasil Analisis (Preview)
+### Hasil Analisis (Preview)
 
 Berikut adalah beberapa contoh visualisasi yang dihasilkan oleh project ini:
 
-### 1. Distribusi Sentimen
+#### 1. Distribusi Sentimen
 ![Sentiment Distribution](outputs/sentiment-coretax.png)
 
-### 2. Hierarchical Clustering
+#### 2. Hierarchical Clustering
 ![Hierarchical Clustering](outputs/hierarchical-clustering.png)
 
-### 3. Topik Word Scores (BERTopic)
+#### 3. Topik Word Scores (BERTopic)
 ![Topic Word Scores](outputs/topic-word-scores.png)
 
 *Untuk hasil lengkap, silakan cek folder `outputs/`.*
