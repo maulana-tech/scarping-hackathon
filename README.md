@@ -1,5 +1,7 @@
 # CoreTax Sentiment Analysis
 
+Judul : Sentiment Analysis sebagai Dasar Pengambilan Keputusan Peningkatan Layanan CoreTax pada Sistem Perpajakan Digital.
+
 ![Banner](outputs/wordcloud-sentiment.png)
 
 Project ini bertujuan untuk menganalisis sentimen publik terhadap sistem CoreTax DJP menggunakan data dari YouTube, Play Store, dan Media Sosial.
