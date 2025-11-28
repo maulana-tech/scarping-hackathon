@@ -24,6 +24,10 @@ Kami mengumpulkan data dari berbagai platform digital (**YouTube, Play Store, Tw
 ![Scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![WordCloud](https://img.shields.io/badge/WordCloud-%23ffffff.svg?style=for-the-badge&logo=WordCloud&logoColor=black)
+![NetworkX](https://img.shields.io/badge/NetworkX-%23ffffff.svg?style=for-the-badge&logo=NetworkX&logoColor=black)
+![BERTopic](https://img.shields.io/badge/BERTopic-%23ffffff.svg?style=for-the-badge&logo=BERTopic&logoColor=black)
+![Sastrawi](https://img.shields.io/badge/Sastrawi-%23ffffff.svg?style=for-the-badge&logo=Sastrawi&logoColor=black)
 
 Project ini dibangun menggunakan teknologi dan library berikut:
 
