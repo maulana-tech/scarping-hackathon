@@ -5,7 +5,7 @@ from utils import load_html_asset, setup_page
 def show():
     st.title("Visualisasi Interaktif (BERTopic)")
     
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Topik", "Dokumen", "Hierarki", "Heatmap", "Barchart"])
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Topik", "Dokumen", "Hierarki", "Heatmap", "Barchart", "Matriks Sentimen"])
     
     with tab1:
         st.header("Sebaran Topik (Intertopic Distance Map)")
@@ -77,6 +77,16 @@ def show():
             components.html(html, height=1200, scrolling=False)
         else:
             st.warning("Visualisasi Barchart belum digenerate.")
+
+    with tab6:
+        st.header("Matriks Sentimen per Topik")
+        st.markdown("Heatmap ini menunjukkan distribusi sentimen di setiap topik.")
+        
+        html = load_html_asset("confusion_matrix.html")
+        if html:
+            components.html(html, height=800, scrolling=True)
+        else:
+            st.warning("Visualisasi Matriks Sentimen belum digenerate.")
 
 if __name__ == "__main__":
     setup_page("Visualizations")

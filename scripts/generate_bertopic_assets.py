@@ -1,6 +1,7 @@
 import pandas as pd
 from bertopic import BERTopic
 from sentence_transformers import SentenceTransformer
+import plotly.express as px
 import os
 
 # Paths
@@ -38,28 +39,62 @@ def generate_assets():
     
     print("Generating visualizations...")
     # 1. Topics
-    fig_topics = topic_model.visualize_topics()
-    fig_topics.write_html(os.path.join(OUTPUT_ASSETS_DIR, "topics.html"))
+    # fig_topics = topic_model.visualize_topics()
+    # fig_topics.write_html(os.path.join(OUTPUT_ASSETS_DIR, "topics.html"))
     
     # 2. Barchart
-    fig_barchart = topic_model.visualize_barchart(top_n_topics=10)
-    fig_barchart.write_html(os.path.join(OUTPUT_ASSETS_DIR, "barchart.html"))
+    # fig_barchart = topic_model.visualize_barchart(top_n_topics=10)
+    # fig_barchart.write_html(os.path.join(OUTPUT_ASSETS_DIR, "barchart.html"))
     
     # 3. Hierarchy
-    fig_hierarchy = topic_model.visualize_hierarchy()
-    fig_hierarchy.write_html(os.path.join(OUTPUT_ASSETS_DIR, "hierarchy.html"))
+    # fig_hierarchy = topic_model.visualize_hierarchy()
+    # fig_hierarchy.write_html(os.path.join(OUTPUT_ASSETS_DIR, "hierarchy.html"))
 
     # 4. Heatmap
-    fig_heatmap = topic_model.visualize_heatmap()
-    fig_heatmap.write_html(os.path.join(OUTPUT_ASSETS_DIR, "heatmap.html"))
+    # fig_heatmap = topic_model.visualize_heatmap()
+    # fig_heatmap.write_html(os.path.join(OUTPUT_ASSETS_DIR, "heatmap.html"))
     
     # 5. Documents (Sample)
     # visualize_documents is heavy. We'll try it on a subset if it's too large, but 2k-3k is fine.
     # We need the embeddings for this.
-    print("Generating document visualization (this might take a moment)...")
-    embeddings = embedding_model.encode(texts, show_progress_bar=True)
-    fig_docs = topic_model.visualize_documents(texts, embeddings=embeddings)
-    fig_docs.write_html(os.path.join(OUTPUT_ASSETS_DIR, "documents.html"))
+    # print("Generating document visualization (this might take a moment)...")
+    # embeddings = embedding_model.encode(texts, show_progress_bar=True)
+    # fig_docs = topic_model.visualize_documents(texts, embeddings=embeddings)
+    # fig_docs.write_html(os.path.join(OUTPUT_ASSETS_DIR, "documents.html"))
+    
+    # 6. Sentiment Confusion Matrix (Topic vs Sentiment)
+    print("Generating Sentiment Confusion Matrix...")
+    # Predict topics for ALL data to see distribution
+    # We use the full dataframe 'df' loaded at the beginning
+    all_texts = df['text'].fillna('').tolist()
+    # We need to transform the texts to get their topics based on the trained model
+    # Note: This might take a bit of time for large datasets
+    all_topics, _ = topic_model.transform(all_texts, embeddings=embedding_model.encode(all_texts, show_progress_bar=False))
+    
+    df['topic'] = all_topics
+    
+    # Get topic info to map IDs to names
+    topic_info = topic_model.get_topic_info()
+    topic_map = dict(zip(topic_info['Topic'], topic_info['Name']))
+    df['topic_name'] = df['topic'].map(topic_map)
+    
+    # Create crosstab
+    if 'sentiment' in df.columns:
+        contingency = pd.crosstab(df['topic_name'], df['sentiment'])
+        
+        # Clean names for better display (remove the ID prefix like '0_')
+        contingency.index = [t.split('_')[1] if isinstance(t, str) and '_' in t else t for t in contingency.index]
+        
+        fig_cm = px.imshow(
+            contingency,
+            labels=dict(x="Sentimen", y="Topik", color="Jumlah Komentar"),
+            x=contingency.columns,
+            y=contingency.index,
+            aspect="auto",
+            color_continuous_scale="Viridis",
+            title="Matriks Sentimen per Topik"
+        )
+        fig_cm.write_html(os.path.join(OUTPUT_ASSETS_DIR, "confusion_matrix.html"))
     
     print("Done! Assets saved to", OUTPUT_ASSETS_DIR)
 
