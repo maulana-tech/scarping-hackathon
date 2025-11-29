@@ -69,9 +69,20 @@ body,
 
 [data-testid="stSidebar"] .streamlit-expanderContent {
     border: none;
-    color: var(--text-secondary);
+    color: var(--text-color);
     font-size: 0.85rem;
     padding-left: 1rem;
+}
+
+strong,
+b {
+    color: var(--text-color) !important;
+    font-weight: 700;
+}
+
+p,
+li {
+    color: var(--text-color);
 }
 
 [data-testid="stSidebar"] hr {
