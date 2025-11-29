@@ -8,7 +8,8 @@
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
     --text-color: #0f172a;
-    --text-secondary: #64748b;
+    --text-secondary: #334155;
+    /* Darker for better readability */
     --border-color: #e2e8f0;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -21,7 +22,8 @@
         --bg-color: #0f172a;
         --card-bg: #1e293b;
         --text-color: #f1f5f9;
-        --text-secondary: #94a3b8;
+        --text-secondary: #cbd5e1;
+        /* Lighter for dark mode */
         --border-color: #334155;
     }
 }
@@ -31,6 +33,23 @@ body,
 [class*="css"] {
     font-family: var(--font-family);
     color: var(--text-color);
+}
+
+/* Force high contrast for all markdown text */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] span,
+[data-testid="stMarkdownContainer"] div {
+    color: var(--text-color) !important;
+}
+
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] h5,
+[data-testid="stMarkdownContainer"] h6 {
+    color: var(--text-color) !important;
 }
 
 /* App Background */
@@ -62,14 +81,14 @@ body,
 [data-testid="stSidebar"] .streamlit-expanderHeader {
     background-color: transparent;
     border: none;
-    color: var(--text-color);
+    color: var(--text-color) !important;
     font-weight: 600;
     font-size: 0.9rem;
 }
 
 [data-testid="stSidebar"] .streamlit-expanderContent {
     border: none;
-    color: var(--text-color);
+    color: var(--text-color) !important;
     font-size: 0.85rem;
     padding-left: 1rem;
 }
@@ -82,7 +101,7 @@ b {
 
 p,
 li {
-    color: var(--text-color);
+    color: var(--text-color) !important;
 }
 
 [data-testid="stSidebar"] hr {
@@ -128,9 +147,10 @@ h6 {
 }
 
 .metric-label {
-    color: var(--text-secondary);
+    color: var(--text-color) !important;
+    /* Force high contrast */
     font-size: 0.875rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
